@@ -1,5 +1,5 @@
 {
-    "name": "bas/magento-custom-shipping",
+    "name": "bastrucks/magento-custom-shipping",
     "description": "A custom shipping method that makes an external api call to calculate shipping prices",
     "type": "magento2-module",
     "version": "0.0.1",
