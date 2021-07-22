@@ -1,12 +1,12 @@
 <?php
 
-namespace vendor\bastrucks\shipping\Model\Carrier;
+namespace bastrucks\shipping\Model\Carrier;
 
-use vendor\bastrucks\shipping\Model\Order\Order;
-use vendor\bastrucks\shipping\Model\Order\Tyre;
-use magento\module-catalog\Api\ProductRepositoryInterface;
-use magento\module-quote\Model\Quote\Address\RateRequest;
-use magento\module-shipping\Model\Rate\Result;
+use Vendor\bastrucks\shipping\Model\Order\Order;
+use Vendor\bastrucks\shipping\Model\Order\Tyre;
+use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Quote\Model\Quote\Address\RateRequest;
+use Magento\Shipping\Model\Rate\Result;
 
 class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
     \Magento\Shipping\Model\Carrier\CarrierInterface

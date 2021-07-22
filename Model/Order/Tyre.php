@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor\bastrucks\shipping\Model\Order;
+namespace bastrucks\shipping\Model\Order;
 
 class Tyre
 {
