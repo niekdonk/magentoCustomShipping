@@ -107,6 +107,7 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         if ($request->getAllItems()) {
             foreach ($request->getAllItems() as $item) {
                 $product = $this->productRepository->getById($item->getProduct()->getId());
+                /* TODO wait to uncomment for the attributes names
                 array_push(
                     $tyres,
                     new Tyre(
@@ -116,6 +117,7 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
                         $product->getData('diameter'),
                         $product->getData('weight'),
                     ));//TODO find a better solution for this?
+                */
             }
         }
 
@@ -141,6 +143,11 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
 
 
         $shippingPrice = 123456789;
+
+        /* TODO remove this */
+        if ($countryCode === "NL") {
+            return 69;
+        }
 
         return $shippingPrice;
     }
