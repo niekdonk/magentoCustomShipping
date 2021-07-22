@@ -5,7 +5,7 @@
             <simpleshipping>
                 <active>1</active>
                 <sallowspecific>0</sallowspecific>
-                <model>bastrucks\customShipping\Model\Carrier\Shipping</model>
+                <model>bastrucks\shipping\Model\Carrier\Shipping</model>
                 <name>BAS Shipping</name>
                 <price>10.00</price>
                 <title>BAS Shipping</title>

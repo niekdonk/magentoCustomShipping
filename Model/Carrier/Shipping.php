@@ -1,6 +1,6 @@
 <?php
 
-namespace customShipping\Model\Carrier;
+namespace shipping\Model\Carrier;
 
 use Bas\CustomShipping\Model\Order\Order;
 use Bas\CustomShipping\Model\Order\Tyre;

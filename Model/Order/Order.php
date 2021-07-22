@@ -1,7 +1,7 @@
 <?php
 
 
-namespace customShipping\Model\Order;
+namespace shipping\Model\Order;
 
 
 class Order

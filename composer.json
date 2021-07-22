@@ -1,8 +1,8 @@
 {
-    "name": "bastrucks/custom-shipping",
+    "name": "bastrucks/shipping",
     "description": "A custom shipping method that makes an external api call to calculate shipping prices",
     "type": "magento2-module",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "license": "MIT",
     "require": {
         "php": "~7.3.0||~7.4.0||~8.0.0"
