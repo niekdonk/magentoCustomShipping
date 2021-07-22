@@ -2,8 +2,8 @@
 
 namespace vendor\bastrucks\shipping\Model\Carrier;
 
-use Bas\CustomShipping\Model\Order\Order;
-use Bas\CustomShipping\Model\Order\Tyre;
+use vendor\bastrucks\shipping\Model\Order\Order;
+use vendor\bastrucks\shipping\Model\Order\Tyre;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Rate\Result;
