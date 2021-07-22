@@ -4,9 +4,9 @@ namespace vendor\bastrucks\shipping\Model\Carrier;
 
 use vendor\bastrucks\shipping\Model\Order\Order;
 use vendor\bastrucks\shipping\Model\Order\Tyre;
-use Magento\module-catalog\Api\ProductRepositoryInterface;
-use Magento\module-quote\Model\Quote\Address\RateRequest;
-use Magento\module-shipping\Model\Rate\Result;
+use magento\module-catalog\Api\ProductRepositoryInterface;
+use magento\module-quote\Model\Quote\Address\RateRequest;
+use magento\module-shipping\Model\Rate\Result;
 
 class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
     \Magento\Shipping\Model\Carrier\CarrierInterface
