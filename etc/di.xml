@@ -13,14 +13,14 @@
     <type name="Magento\Config\Model\Config\TypePool">
         <arguments>
             <argument name="sensitive" xsi:type="array">
-                <item name="integration/test/url" xsi:type="string">1</item>
+                <item name="bastrucks\shipping\key" xsi:type="string">1</item>
             </argument>
         </arguments>
     </type>
     <type name="Magento\Config\Model\Config\TypePool">
         <arguments>
             <argument name="environment" xsi:type="array">
-                <item name="integration/environment/url" xsi:type="string">1</item>
+                <item name="bastrucks\shipping\url" xsi:type="string">1</item>
             </argument>
         </arguments>
     </type>
