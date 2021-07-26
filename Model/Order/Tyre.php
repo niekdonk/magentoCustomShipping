@@ -9,6 +9,23 @@ class Tyre
     private float $height;
     private float $diameter;
     private float $weight;
+    private String $size;
+
+    /**
+     * @return String
+     */
+    public function getSize(): string
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param String $size
+     */
+    public function setSize(string $size): void
+    {
+        $this->size = $size;
+    }
 
     /**
      * @return float
@@ -33,13 +50,14 @@ class Tyre
      * @param float $height
      * @param float $diameter
      */
-    public function __construct(string $sku, float $width, float $height, float $diameter, float $weight)
+    public function __construct(string $sku, float $width, float $height, float $diameter, float $weight, string $size)
     {
         $this->sku = $sku;
         $this->width = $width;
         $this->height = $height;
         $this->diameter = $diameter;
         $this->weight = $weight;
+        $this->size = $size;
     }
 
     /**

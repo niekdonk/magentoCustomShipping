@@ -16,9 +16,6 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
      */
     protected $_code = 'simpleshipping';
 
-    private $url;
-    private $key;
-
     /**
      * @var \Magento\Shipping\Model\Rate\ResultFactory
      */
@@ -55,8 +52,6 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         $this->productRepository = $productRepository;
         $this->_rateResultFactory = $rateResultFactory;
         $this->_rateMethodFactory = $rateMethodFactory;
-        $this->url = $_ENV["API_URL"];
-        $this->key = $_ENV["API_KEY"];
         parent::__construct($scopeConfig, $rateErrorFactory, $logger, $data);
     }
 
@@ -121,6 +116,7 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
                         $product->getData('height'),
                         $product->getData('diameter'),
                         $product->getData('weight'),
+                        $product->getData('size'),
                     ));//TODO find a better solution for this?
                 */
             }
