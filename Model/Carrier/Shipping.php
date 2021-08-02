@@ -86,8 +86,11 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
 
         $shipping = $this->getShipping($request);
 
-        //TODO test if this is the correct data
-        //TODO add message when no shipping available
+        //no shipping prices available
+        if (!isset($shipping)) {
+            return false;
+        }
+
         $amount = $shipping['price'];
         $method->setCarrierTitle($shipping['carrier']);
 
