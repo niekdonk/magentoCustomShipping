@@ -85,8 +85,6 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
 
         $method->setMethod($this->_code);
         $method->setMethodTitle($this->getConfigData('name'));
-        print_r($this->getConfigData('shipping_url'));
-        exit();
 
         $amount = $this->getShippingPrice($request);
 
@@ -143,8 +141,7 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         //TODO sent this object to the api
         $json = json_encode($order);
 
-        //TODO set this url
-        $url = 'http://1.2.3.4:8888/url/here';
+        $url = $this->getConfigData('shipping_url');
 
         //TODO get price and carrier from this response
         $response = $this->makeCall($url, $json);
