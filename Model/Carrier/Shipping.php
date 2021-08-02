@@ -3,7 +3,6 @@
 namespace bastrucks\shipping\Model\Carrier;
 
 use bastrucks\shipping\Model\Order\Order;
-use bastrucks\shipping\Model\Order\Tyre;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Rate\Result;
@@ -40,13 +39,13 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
      * @param array $data
      */
     public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Magento\Quote\Model\Quote\Address\RateResult\ErrorFactory $rateErrorFactory,
-        \Psr\Log\LoggerInterface $logger,
-        \Magento\Shipping\Model\Rate\ResultFactory $rateResultFactory,
+        \Magento\Framework\App\Config\ScopeConfigInterface          $scopeConfig,
+        \Magento\Quote\Model\Quote\Address\RateResult\ErrorFactory  $rateErrorFactory,
+        \Psr\Log\LoggerInterface                                    $logger,
+        \Magento\Shipping\Model\Rate\ResultFactory                  $rateResultFactory,
         \Magento\Quote\Model\Quote\Address\RateResult\MethodFactory $rateMethodFactory,
-        ProductRepositoryInterface $productRepository,
-        array $data = []
+        ProductRepositoryInterface                                  $productRepository,
+        array                                                       $data = []
     )
     {
         $this->productRepository = $productRepository;
@@ -142,14 +141,53 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         //TODO sent this object to the api
         $json = json_encode($order);
 
+        //TODO set this url
+        $url = 'http://1.2.3.4:8888/url/here';
 
+        //TODO get price and carrier from this response
+        $response = $this->makeCall($url, $json);
+
+        //TODO get this from the response
         $shippingPrice = 123456789;
 
         /* TODO remove this */
         if ($countryCode === "NL") {
             return 69;
         }
+        /* TODO remove this */
 
         return $shippingPrice;
+    }
+
+    private function makeCall($url, $json)
+    {
+        // Setup cURL
+        $ch = curl_init($url);
+        curl_setopt_array($ch, array(
+            CURLOPT_POST => TRUE,
+            CURLOPT_RETURNTRANSFER => TRUE,
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json'
+            ),
+            CURLOPT_POSTFIELDS => $json
+        ));
+
+        // Send the request
+        $response = curl_exec($ch);
+
+        // Check for errors
+        if ($response === FALSE) {
+            print_r("Hier gaat het fout ofzo");
+            die(curl_error($ch));
+        }
+
+        // Decode the response
+        $responseData = json_decode($response, TRUE);
+
+        // Close the cURL handler
+        curl_close($ch);
+
+        // return the response TODO maybe return responsedata. Check this later
+        return $response;
     }
 }

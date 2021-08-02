@@ -16,7 +16,8 @@
         "magento/module-sales-rule": "*",
         "magento/module-shipping": "*",
         "magento/module-store": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+      "ext-curl": "*"
     },
     "autoload": {
         "files": [ "registration.php" ],
