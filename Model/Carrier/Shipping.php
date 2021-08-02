@@ -85,6 +85,8 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
 
         $method->setMethod($this->_code);
         $method->setMethodTitle($this->getConfigData('name'));
+        print_r($this->getConfigData('shipping_url'));
+        exit();
 
         $amount = $this->getShippingPrice($request);
 
