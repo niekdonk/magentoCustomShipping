@@ -179,6 +179,6 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         curl_close($ch);
 
         // return the response TODO maybe return responsedata. Check this later
-        return $response;
+        return $responseData;
     }
 }
