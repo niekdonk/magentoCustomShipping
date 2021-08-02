@@ -80,13 +80,16 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         $method = $this->_rateMethodFactory->create();
 
         $method->setCarrier($this->_code);
-        //TODO maybe set the carrier name here. Get this from api
-        $method->setCarrierTitle("CARRIER NAME FROM API");
 
         $method->setMethod($this->_code);
         $method->setMethodTitle($this->getConfigData('name'));
 
-        $amount = $this->getShippingPrice($request);
+        $shipping = $this->getShipping($request);
+
+        //TODO test if this is the correct data
+        //TODO add message when no shipping available
+        $amount = $shipping['price'];
+        $method->setCarrierTitle($shipping['carrier']);
 
         $method->setPrice($amount);
         $method->setCost($amount);
@@ -99,7 +102,7 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
     /**
      * @return float
      */
-    private function getShippingPrice(RateRequest $request)
+    private function getShipping(RateRequest $request)
     {
         $tyres = [];
 
@@ -143,19 +146,8 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
 
         $url = $this->getConfigData('shipping_url');
 
-        //TODO get price and carrier from this response
         $response = $this->makeCall($url, $json);
-
-        //TODO get this from the response
-        $shippingPrice = 123456789;
-
-        /* TODO remove this */
-        if ($countryCode === "NL") {
-            return 69;
-        }
-        /* TODO remove this */
-
-        return $shippingPrice;
+        return $response;
     }
 
     private function makeCall($url, $json)
