@@ -169,10 +169,9 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         // Send the request
         $response = curl_exec($ch);
 
-        // Check for errors
+        // Check for errors. If there is an error the server probably isn't available
         if ($response === FALSE) {
-            print_r("Hier gaat het fout ofzo");
-            die(curl_error($ch));
+            return false;
         }
 
         // Decode the response
