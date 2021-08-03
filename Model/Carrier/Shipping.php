@@ -85,13 +85,8 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         $method->setMethodTitle($this->getConfigData('name'));
 
         $shipping = $this->getShipping($request);
-        if (!$shipping) {
-            //when server error
-            return false;
-        }
-
-        //no shipping prices available
-        if (!isset($shipping)) {
+        if (!$shipping || !isset($shipping)) {
+            //when server error or no shipping prices available
             return false;
         }
 
