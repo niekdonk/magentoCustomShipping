@@ -87,7 +87,14 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         $shipping = $this->getShipping($request);
         if (!$shipping || !isset($shipping)) {
             //when server error or no shipping prices available
-            return false;
+            $error = $this->_rateErrorFactory->create();
+            $error->setCarrier($this->_code);
+            $error->setCarrierTitle($this->getConfigData('title'));
+            $error->setErrorMessage(__(
+                    'Sorry, but we can\'t deliver to the destination city with this shipping module.'
+                )
+            );
+            return $error;
         }
 
         $amount = $shipping['price'];
