@@ -91,7 +91,7 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
             $error->setCarrier($this->_code);
             $error->setCarrierTitle($this->getConfigData('title'));
             $error->setErrorMessage(__(
-                    'Sorry, but we can\'t deliver to the destination city with this shipping module.'
+                    'Sorry, but we can\'t estimate the shipping prices for your destination city. Please contact us to order.'
                 )
             );
             return $error;
