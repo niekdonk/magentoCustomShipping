@@ -5,11 +5,10 @@
             <simpleshipping>
                 <active>1</active>
                 <sallowspecific>0</sallowspecific>
+                <showmethod >1</showmethod >
                 <model>bastrucks\shipping\Model\Carrier\Shipping</model>
                 <name>BAS Shipping</name>
-                <price>10.00</price>
                 <title>BAS Shipping</title>
-                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
                 <handling_type>F</handling_type>
             </simpleshipping>
         </carriers>

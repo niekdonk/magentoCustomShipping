@@ -89,9 +89,8 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
             //when server error or no shipping prices available
             $error = $this->_rateErrorFactory->create();
             $error->setCarrier($this->_code);
-            $error->setCarrierTitle($this->getConfigData('title'));
             $error->setErrorMessage(__(
-                    'Sorry, but we can\'t estimate the shipping prices for your destination city. Please contact us to order.'
+                    'Shipping is not available at this moment. To use shipping, please contact us.'
                 )
             );
             return $error;
@@ -143,6 +142,7 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         }
 
         if ($countryCode === "GB") {
+            //gets the postalcode before the numbers start
             $pattern = '/(?=\d)/';
             $postalGB = preg_split($pattern, $postalCode, 2);
             $region = $countryCode . $postalGB[0];
