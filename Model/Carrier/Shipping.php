@@ -3,6 +3,7 @@
 namespace bastrucks\shipping\Model\Carrier;
 
 use bastrucks\shipping\Model\Order\Order;
+use bastrucks\shipping\Model\Order\Tyre;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Rate\Result;
@@ -117,18 +118,17 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         if ($request->getAllItems()) {
             foreach ($request->getAllItems() as $item) {
                 $product = $this->productRepository->getById($item->getProduct()->getId());
-                /* TODO wait to uncomment for the attributes names
+
                 array_push(
                     $tyres,
                     new Tyre(
                         $product->getData('sku'),
-                        $product->getData('width'),
-                        $product->getData('height'),
-                        $product->getData('diameter'),
-                        $product->getData('weight'),
-                        $product->getData('size'),
+                        $product->getData($this->getConfigData('width')),
+                        $product->getData($this->getConfigData('height')),
+                        $product->getData($this->getConfigData('diameter')),
+                        $product->getData($this->getConfigData('weight')),
+                        $product->getData($this->getConfigData('size')),
                     ));//TODO find a better solution for this?
-                */
             }
         }
 
