@@ -119,6 +119,15 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
             foreach ($request->getAllItems() as $item) {
                 $product = $this->productRepository->getById($item->getProduct()->getId());
 
+                if ($product->getData($this->getConfigData('width')) === null ||
+                    $product->getData($this->getConfigData('height')) === null ||
+                    $product->getData($this->getConfigData('diameter')) === null ||
+                    $product->getData($this->getConfigData('weight')) === null ||
+                    $product->getData($this->getConfigData('size')) === null) {
+
+                    return false;
+                }
+
                 array_push(
                     $tyres,
                     new Tyre(
