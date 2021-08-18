@@ -170,14 +170,16 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
 
     private function makeCall($url, $json)
     {
+        $authorization = "Authorization: Bearer ".$this->getConfigData('shipping_url_key');
+
         // Setup cURL
         $ch = curl_init($url);
         curl_setopt_array($ch, array(
             CURLOPT_POST => TRUE,
             CURLOPT_RETURNTRANSFER => TRUE,
-            CURLAUTH_BEARER => $this->getConfigData('shipping_url_key'),
             CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/json'
+                'Content-Type: application/json',
+                $authorization
             ),
             CURLOPT_POSTFIELDS => $json
         ));
