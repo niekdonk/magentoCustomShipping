@@ -175,6 +175,7 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         curl_setopt_array($ch, array(
             CURLOPT_POST => TRUE,
             CURLOPT_RETURNTRANSFER => TRUE,
+            CURLAUTH_BEARER => $this->getConfigData('shipping_url_key'),
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json'
             ),

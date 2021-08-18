@@ -26,6 +26,9 @@
                 <field id="shipping_url" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Shipping url</label>
                 </field>
+                <field id="shipping_url_key" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shipping url key</label>
+                </field>
                 <field id="width" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Width attribute</label>
                 </field>
